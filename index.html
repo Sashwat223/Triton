@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>TRITON — Hear Beyond. | Flagship Wireless Earbuds</title>
+  <meta name="description" content="Experience TRITON flagship wireless earbuds. Cinematic scrollytelling, custom 11mm titanium acoustic drivers, 36-hour endurance, and precision-engineered acoustic craft.">
+  <meta name="theme-color" content="#050505">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="TRITON — Hear Beyond.">
+  <meta property="og:description" content="Precision-crafted wireless audio. Designed for every moment.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300D6FF' stroke-width='2'%3E%3Cpath d='M12 2v20M5 7v10M19 7v10M8 4.5v15M16 4.5v15M2 9.5v5M22 9.5v5'/%3E%3C/svg%3E">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+  <!-- ========================================================================
+       Apple-Style Glassmorphic Navbar
+       ======================================================================== -->
+  <header id="navbar" class="navbar">
+    <div class="nav-container">
+      <!-- Brand Identity -->
+      <a href="#overview" class="nav-brand" aria-label="TRITON Home">
+        <span class="brand-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v20M5 7v10M19 7v10M8 4.5v15M16 4.5v15M2 9.5v5M22 9.5v5" />
+          </svg>
+        </span>
+        TRITON
+      </a>
+
+      <!-- Minimalist Navigation Links -->
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="#overview" class="nav-link">Overview</a></li>
+          <li><a href="#technology" class="nav-link">Technology</a></li>
+          <li><a href="#sound" class="nav-link">Sound</a></li>
+          <li><a href="#design" class="nav-link">Design</a></li>
+          <li><a href="#specs" class="nav-link">Specs</a></li>
+        </ul>
+      </nav>
+
+      <!-- Primary Action CTA -->
+      <div class="nav-actions">
+        <button type="button" class="btn-primary nav-cta trigger-preorder">
+          Experience TRITON
+        </button>
+        <button type="button" id="mobile-menu-toggle" class="mobile-menu-btn" aria-label="Toggle Navigation Menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-nav-drawer" style="display:none;"></div>
+
+  <main>
+    <!-- ======================================================================
+         CORE INTERACTION: 400vh Sticky Viewport Scrollytelling Sequence
+         ====================================================================== -->
+    <section id="scrolly-section" class="scrolly-container" aria-label="Interactive Product Scrollytelling">
+      <div class="sticky-viewport">
+        <!-- Ambient radial glow behind product -->
+        <div class="canvas-ambient-glow" aria-hidden="true"></div>
+
+        <!-- Central HTML5 Canvas rendering 299-frame sequence (Cinematic Experience) -->
+        <canvas id="product-canvas" width="1920" height="1080"></canvas>
+
+        <!-- Interactive Color Swatches Widget in Hero Viewport -->
+        <div class="hero-color-widget" role="group" aria-label="Color Customizer">
+          <div class="color-badge-label">
+            <span class="color-badge-dot"></span>
+            <span id="hero-color-name">CERAMIC WHITE</span>
+          </div>
+          <div class="hero-color-swatches">
+            <button type="button" class="hero-swatch-btn active" data-color="white" title="Ceramic White" aria-label="Select Ceramic White">
+              <span class="swatch-circle" style="background: radial-gradient(circle at 35% 35%, #FFFFFF, #D6DCE5);"></span>
+            </button>
+            <button type="button" class="hero-swatch-btn" data-color="navy" title="Glossy Navy" aria-label="Select Glossy Navy">
+              <span class="swatch-circle" style="background: radial-gradient(circle at 35% 35%, #18346B, #07132B);"></span>
+            </button>
+            <button type="button" class="hero-swatch-btn" data-color="graphite" title="Graphite" aria-label="Select Graphite">
+              <span class="swatch-circle" style="background: radial-gradient(circle at 35% 35%, #7A7E8A, #3B3E45);"></span>
+            </button>
+            <button type="button" class="hero-swatch-btn" data-color="black" title="Obsidian Black" aria-label="Select Obsidian Black">
+              <span class="swatch-circle" style="background: radial-gradient(circle at 35% 35%, #2D2E33, #121214);"></span>
+            </button>
+          </div>
+          <span class="hero-3d-hint">Select finish • Scroll to explore</span>
+        </div>
+
+        <!-- Progressive Loading Pill -->
+        <div id="loader-pill" class="loader-pill" aria-live="polite">
+          <span>INITIALIZING TRITON CINEMATIC FRAMES</span>
+          <div class="loader-bar-bg">
+            <div id="loader-bar-fill" class="loader-bar-fill"></div>
+          </div>
+          <span id="loader-text">0%</span>
+        </div>
+
+        <!-- ==================================================================
+             The 5 Storytelling Beats (Positioned to never cover the AirPods)
+             ================================================================== -->
+        <div class="story-overlay" aria-hidden="false">
+
+          <!-- BEAT 1: HERO / INTRO (0 - 15% Scroll) - Positioned at top-center, above case -->
+          <div id="beat-hero" class="story-beat beat-hero active" role="region" aria-label="Product Hero Introduction">
+            <span class="eyebrow">FLAGSHIP WIRELESS AUDIO</span>
+            <h1 class="heading-display">Hear Beyond.</h1>
+            <p class="heading-sub" style="margin-top: 0.5rem;">Sound, without compromise.</p>
+            <p class="body-lead" style="margin: 0.75rem auto 0 auto; max-width: 32rem;">
+              Precision-crafted wireless audio. Designed for every moment.
+            </p>
+          </div>
+
+          <!-- BEAT 2: DESIGN & ERGONOMICS (15 - 40% Scroll) - Positioned at top-left -->
+          <div id="beat-design" class="story-beat beat-design" role="region" aria-label="Design and Ergonomics Reveal">
+            <span class="eyebrow">ERGONOMICS & CRAFTSMANSHIP</span>
+            <h2 class="heading-section" style="font-size: clamp(1.75rem, 3.2vw, 2.75rem);">Precision in every curve.</h2>
+            <p class="body-lead" style="margin-top: 0.75rem; font-size: 0.95rem;">
+              Every contour is shaped for a refined fit and effortless everyday wear.
+            </p>
+            <p class="body-text" style="margin-top: 0.5rem; font-size: 0.85rem;">
+              From the acoustic openings to the charging case, every detail serves a purpose. Polished ceramic surfaces pair with microscopic acoustic vents for pure weightless balance.
+            </p>
+            <div class="spec-pills">
+              <span class="spec-pill"><span class="spec-pill-dot"></span>5.3g Ultra-Light</span>
+              <span class="spec-pill"><span class="spec-pill-dot"></span>Acoustic Ports</span>
+              <span class="spec-pill"><span class="spec-pill-dot"></span>Liquid Silicone</span>
+            </div>
+          </div>
+
+          <!-- BEAT 3: SMART AUDIO & EXPLODED TECHNICAL VIEW (40 - 65% Scroll) - Positioned at top-right -->
+          <div id="beat-engineering" class="story-beat beat-engineering" role="region" aria-label="Smart Audio and Exploded View">
+            <span class="eyebrow">INTERNAL ENGINEERING</span>
+            <h2 class="heading-section" style="font-size: clamp(1.75rem, 3.2vw, 2.75rem);">Focus on what matters.</h2>
+            <p class="body-lead" style="margin-top: 0.75rem; font-size: 0.95rem;">
+              Designed to bring your audio closer.
+            </p>
+            <p class="body-text" style="margin-top: 0.5rem; font-size: 0.85rem;">
+              Intuitive controls keep your listening experience effortless. A refined acoustic design for immersive everyday listening, exposing high-density micro-cells and custom DSP processing.
+            </p>
+            <div class="spec-pills">
+              <span class="spec-pill"><span class="spec-pill-dot"></span>11mm Titanium Driver</span>
+              <span class="spec-pill"><span class="spec-pill-dot"></span>Dual-Core DSP</span>
+              <span class="spec-pill"><span class="spec-pill-dot"></span>Qi Induction Coil</span>
+            </div>
+          </div>
+
+          <!-- BEAT 4: SOUND & ACOUSTIC CRAFT (65 - 85% Scroll) - Positioned at top-left -->
+          <div id="beat-sound" class="story-beat beat-sound" role="region" aria-label="Sound and Acoustic Craft">
+            <span class="eyebrow">ACOUSTIC FIDELITY</span>
+            <h2 class="heading-section" style="font-size: clamp(1.75rem, 3.2vw, 2.75rem);">Every note. Every detail.</h2>
+            <p class="body-lead" style="margin-top: 0.75rem; font-size: 0.95rem;">
+              Designed to bring clarity, depth, and presence to your listening experience.
+            </p>
+            <p class="body-text" style="margin-top: 0.5rem; font-size: 0.85rem;">
+              A considered balance of comfort, design, and sound for everyday moments. Studio-grade reflections trace the acoustic chambers, delivering expansive dynamic range.
+            </p>
+            <div class="spec-pills">
+              <span class="spec-pill"><span class="spec-pill-dot"></span>20Hz – 40kHz</span>
+              <span class="spec-pill"><span class="spec-pill-dot"></span>&lt; 0.1% THD</span>
+              <span class="spec-pill"><span class="spec-pill-dot"></span>Lossless Master</span>
+            </div>
+          </div>
+
+          <!-- BEAT 5: REASSEMBLY & FINAL CTA (85 - 100% Scroll) - Positioned at top-center -->
+          <div id="beat-cta" class="story-beat beat-cta" role="region" aria-label="Reassembly and Call to Action">
+            <span class="eyebrow">FLAGSHIP REASSEMBLY</span>
+            <h2 class="heading-display" style="font-size: clamp(2rem, 4.5vw, 3.5rem);">Hear beyond the ordinary.</h2>
+            <p class="heading-sub" style="margin-top: 0.4rem; font-size: 1.15rem;">TRITON. Crafted for sound. Designed for life.</p>
+            <p class="body-text" style="margin-top: 0.35rem; color: var(--text-muted); font-size: 0.85rem;">
+              Minimal design. Maximum presence.
+            </p>
+            <div style="display: flex; gap: 14px; justify-content: center; margin-top: 1.5rem; flex-wrap: wrap;">
+              <button type="button" class="btn-primary trigger-preorder" style="padding: 12px 32px; font-size: 0.9rem;">
+                Experience TRITON
+              </button>
+              <a href="#technology" class="btn-secondary" style="padding: 12px 24px; font-size: 0.85rem;">
+                Explore the details
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Pinned Scroll-Down Indicator (Cleanly anchored at bottom, never covering product) -->
+        <div id="hero-scroll-indicator" class="scroll-indicator" aria-hidden="true">
+          <div class="scroll-mouse"></div>
+          <span>Scroll to explore</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION: Interactive Audio Lab & Web Audio Synthesizer
+         ====================================================================== -->
+    <section id="sound" class="section-lab" aria-label="TRITON Audio Lab">
+      <div class="lab-glow" aria-hidden="true"></div>
+      <div class="container-center">
+        <div class="section-header">
+          <span class="eyebrow">INTERACTIVE ACOUSTIC LAB</span>
+          <h2 class="heading-section">Sound sculpted with mathematical precision.</h2>
+          <p class="body-lead" style="margin: 1rem auto 0 auto;">
+            Experience TRITON’s acoustic architecture in real time. Switch between listening profiles and listen to the dimensional soundstage synthesized live in your browser.
+          </p>
+        </div>
+
+        <div class="lab-grid">
+          <!-- Real-Time Audio Canvas Visualizer -->
+          <div class="sound-visualizer-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+              <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-cyan); letter-spacing: 0.1em;">
+                LIVE WAVEFORM MONITOR
+              </span>
+              <span id="audio-status-label" class="audio-status-label">
+                STANDBY • CLICK PREVIEW TO INITIALIZE
+              </span>
+            </div>
+
+            <div class="visualizer-canvas-wrap">
+              <canvas id="sound-canvas"></canvas>
+            </div>
+
+            <!-- Acoustic Mode Toggles -->
+            <div class="sound-modes">
+              <button type="button" class="sound-mode-btn active" data-mode="spatial">
+                3D Spatial Immersion
+              </button>
+              <button type="button" class="sound-mode-btn" data-mode="isolation">
+                Active Noise Isolation
+              </button>
+              <button type="button" class="sound-mode-btn" data-mode="transparency">
+                Smart Transparency
+              </button>
+            </div>
+
+            <!-- Play / Pause Audio Engine -->
+            <div class="audio-controls-row">
+              <button type="button" id="play-audio-btn" class="play-toggle-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+                <span id="play-btn-text">Preview Acoustic Engine</span>
+              </button>
+              <span style="font-size: 0.78rem; color: var(--text-muted);">
+                Generative Web Audio API • 24-Bit / 48kHz
+              </span>
+            </div>
+          </div>
+
+          <!-- Feature Description Cards -->
+          <div class="lab-features-list">
+            <div class="feature-item">
+              <div class="feature-icon-box">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+                  <path d="M2 12h20"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 style="font-size: 1.05rem; font-weight: 600; color: #FFFFFF; margin-bottom: 4px;">Dynamic Spatial Soundstage</h3>
+                <p class="body-text">
+                  Binaural rendering maps individual audio instruments in three-dimensional space, anchoring sound to create an expansive concert-hall illusion.
+                </p>
+              </div>
+            </div>
+
+            <div class="feature-item">
+              <div class="feature-icon-box">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                  <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                  <line x1="12" y1="19" x2="12" y2="23"></line>
+                  <line x1="8" y1="23" x2="16" y2="23"></line>
+                </svg>
+              </div>
+              <div>
+                <h3 style="font-size: 1.05rem; font-weight: 600; color: #FFFFFF; margin-bottom: 4px;">Hybrid Dual-Mic Attenuation</h3>
+                <p class="body-text">
+                  Continuous ambient sampling at 48,000 times per second cancels environmental noise before it reaches your ear canal.
+                </p>
+              </div>
+            </div>
+
+            <div class="feature-item">
+              <div class="feature-icon-box">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                  <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 style="font-size: 1.05rem; font-weight: 600; color: #FFFFFF; margin-bottom: 4px;">Sub-Bass Equalization Chamber</h3>
+                <p class="body-text">
+                  Custom vented geometry regulates in-ear pressure and optimizes bass extension down to 20Hz without masking delicate vocal frequencies.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION: Acoustic Curve & Technical Tuning
+         ====================================================================== -->
+    <section id="technology" class="section-acoustic" aria-label="Acoustic Tuning">
+      <div class="container-center">
+        <div class="acoustic-grid">
+          <div>
+            <span class="eyebrow">AUDIOPHILE TUNING TARGET</span>
+            <h2 class="heading-section">True to the artist’s master recording.</h2>
+            <p class="body-lead" style="margin-top: 1rem;">
+              Tuned to the Harman In-Ear Target with surgical micro-adjustments for effortless warmth, pristine separation, and zero listening fatigue.
+            </p>
+            <p class="body-text" style="margin-top: 1rem;">
+              Select a tuning profile to visualize how the custom titanium driver responds across the audible spectrum:
+            </p>
+            <div style="display: flex; gap: 12px; margin-top: 1.5rem;">
+              <button type="button" class="btn-secondary" onclick="window.setFreqProfile('reference')">
+                Studio Reference (Flat)
+              </button>
+              <button type="button" class="btn-secondary" onclick="window.setFreqProfile('bass')">
+                Dynamic Sub-Bass
+              </button>
+              <button type="button" class="btn-secondary" onclick="window.setFreqProfile('vocal')">
+                Vocal Presence
+              </button>
+            </div>
+          </div>
+
+          <!-- Curve Canvas -->
+          <div class="freq-graph-card">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 12px; font-family: var(--font-mono); font-size: 0.72rem;">
+              <span style="color: var(--accent-cyan);">■ TRITON CUSTOM CURVE</span>
+              <span style="color: var(--text-faint);">--- HARMAN REFERENCE</span>
+            </div>
+            <div class="freq-canvas-wrap">
+              <canvas id="freq-canvas"></canvas>
+            </div>
+            <div class="freq-legend">
+              <span>20 Hz (Sub-Bass)</span>
+              <span>250 Hz (Midrange)</span>
+              <span>4 kHz (Presence)</span>
+              <span>20 kHz (Brilliance)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION: Finishes & Industrial Design
+         ====================================================================== -->
+    <section id="design" class="section-finishes" aria-label="Finishes and Colorways">
+      <div class="container-center">
+        <span class="eyebrow">INDUSTRIAL FINISHES</span>
+        <h2 class="heading-section">Sculpted in ceramic and carbon.</h2>
+        <p class="body-lead" style="margin: 1rem auto 0 auto;">
+          Four understated finishes crafted to withstand everyday life while reflecting light with cinematic elegance.
+        </p>
+
+        <!-- Interactive Color Stage -->
+        <div class="color-preview-stage">
+          <img id="color-stage-img" class="color-stage-img" src="assets/ceramic-white.jpg" alt="TRITON Ceramic White Finish Preview">
+        </div>
+
+        <h3 id="selected-color-name" style="font-size: 1.35rem; font-weight: 600; color: #FFFFFF;">Ceramic White</h3>
+        <p id="selected-color-desc" class="body-text" style="margin-top: 0.5rem; max-width: 480px; margin-left: auto; margin-right: auto;">
+          Signature ceramic composite with liquid-clear reflections and microscopic acoustic vent accents.
+        </p>
+
+        <!-- Swatches -->
+        <div class="colorway-selector">
+          <button type="button" class="color-swatch-btn" data-color="white" aria-label="Select Ceramic White">
+            <div class="color-dot active">
+              <div class="color-dot-inner" style="background: #E8EBF0;"></div>
+            </div>
+            <span class="color-label">Ceramic White</span>
+          </button>
+
+          <button type="button" class="color-swatch-btn" data-color="navy" aria-label="Select Glossy Navy">
+            <div class="color-dot">
+              <div class="color-dot-inner" style="background: #0E2A5C;"></div>
+            </div>
+            <span class="color-label">Glossy Navy</span>
+          </button>
+
+          <button type="button" class="color-swatch-btn" data-color="graphite" aria-label="Select Graphite">
+            <div class="color-dot">
+              <div class="color-dot-inner" style="background: #4A4D55;"></div>
+            </div>
+            <span class="color-label">Graphite</span>
+          </button>
+
+          <button type="button" class="color-swatch-btn" data-color="black" aria-label="Select Obsidian Black">
+            <div class="color-dot">
+              <div class="color-dot-inner" style="background: #18191C;"></div>
+            </div>
+            <span class="color-label">Obsidian Black</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION: Technical Specifications (Apple Bento Grid)
+         ====================================================================== -->
+    <section id="specs" class="section-specs" aria-label="Technical Specifications">
+      <div class="container-center">
+        <div class="section-header">
+          <span class="eyebrow">ENGINEERING SPECIFICATIONS</span>
+          <h2 class="heading-section">Every dimension considered.</h2>
+          <p class="body-lead" style="margin: 1rem auto 0 auto;">
+            Meticulously engineered from the titanium acoustic transducer to the ultra-dense lithium cell.
+          </p>
+        </div>
+
+        <div class="specs-bento-grid">
+          <!-- Bento 1: Battery -->
+          <div class="bento-card col-span-2">
+            <span class="eyebrow">ENDURANCE ARCHITECTURE</span>
+            <div class="bento-num">36<span class="bento-unit">HOURS</span></div>
+            <h3 style="font-size: 1.15rem; font-weight: 600; margin-bottom: 8px;">Continuous Playback System</h3>
+            <p class="body-text">
+              8 hours of uninterrupted listening on a single earbud charge. Rapid fuel charging delivers 2.5 hours of audio from a 5-minute case dock via USB-C or Qi wireless pads.
+            </p>
+          </div>
+
+          <!-- Bento 2: Drivers -->
+          <div class="bento-card">
+            <span class="eyebrow">ACOUSTICS</span>
+            <div class="bento-num">11<span class="bento-unit">MM</span></div>
+            <h3 style="font-size: 1.15rem; font-weight: 600; margin-bottom: 8px;">Titanium Transducer</h3>
+            <p class="body-text">
+              Custom multi-layer dynamic driver with laser-aligned voice coil for deep, controlled bass and crystalline treble.
+            </p>
+          </div>
+
+          <!-- Bento 3: Latency -->
+          <div class="bento-card">
+            <span class="eyebrow">LATENCY</span>
+            <div class="bento-num">35<span class="bento-unit">MS</span></div>
+            <h3 style="font-size: 1.15rem; font-weight: 600; margin-bottom: 8px;">Gaming & Film Sync</h3>
+            <p class="body-text">
+              Proprietary low-latency DSP eliminates lip-sync lag in videos, competitive gaming, and studio monitoring.
+            </p>
+          </div>
+
+          <!-- Bento 4: Durability -->
+          <div class="bento-card">
+            <span class="eyebrow">PROTECTION</span>
+            <div class="bento-num">IP54<span class="bento-unit">RATED</span></div>
+            <h3 style="font-size: 1.15rem; font-weight: 600; margin-bottom: 8px;">Water & Dust Defiance</h3>
+            <p class="body-text">
+              Hydrophobic acoustic mesh and ultrasonic enclosure seals protect against high-intensity workouts and downpours.
+            </p>
+          </div>
+
+          <!-- Bento 5: Connectivity -->
+          <div class="bento-card">
+            <span class="eyebrow">WIRELESS</span>
+            <div class="bento-num">5.4<span class="bento-unit">BT</span></div>
+            <h3 style="font-size: 1.15rem; font-weight: 600; margin-bottom: 8px;">Bluetooth LE Audio</h3>
+            <p class="body-text">
+              Dual-device multi-point pairing with automatic intelligent handoff between your laptop, phone, and tablet.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION: In The Box
+         ====================================================================== -->
+    <section class="section-box" aria-label="Included in the Box">
+      <div class="container-center">
+        <span class="eyebrow">WHAT’S IN THE BOX</span>
+        <h2 class="heading-section">Uncompromising from the first touch.</h2>
+
+        <div class="box-items-grid">
+          <div class="box-item-card">
+            <div class="box-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"></path>
+              </svg>
+            </div>
+            <h3 style="font-size: 0.95rem; font-weight: 600;">TRITON Earbuds</h3>
+            <span style="font-size: 0.78rem; color: var(--text-muted);">Left & Right Pair</span>
+          </div>
+
+          <div class="box-item-card">
+            <div class="box-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="4" y="4" width="16" height="16" rx="4"></rect>
+                <circle cx="12" cy="12" r="2"></circle>
+              </svg>
+            </div>
+            <h3 style="font-size: 0.95rem; font-weight: 600;">Charging Case</h3>
+            <span style="font-size: 0.78rem; color: var(--text-muted);">Wireless Qi Enabled</span>
+          </div>
+
+          <div class="box-item-card">
+            <div class="box-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <circle cx="7" cy="12" r="3"></circle>
+                <circle cx="12" cy="12" r="4"></circle>
+                <circle cx="17" cy="12" r="5"></circle>
+              </svg>
+            </div>
+            <h3 style="font-size: 0.95rem; font-weight: 600;">Silicone Ear Tips</h3>
+            <span style="font-size: 0.78rem; color: var(--text-muted);">4 Sizes (XS, S, M, L)</span>
+          </div>
+
+          <div class="box-item-card">
+            <div class="box-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M12 2v20M8 6h8M8 18h8"></path>
+              </svg>
+            </div>
+            <h3 style="font-size: 0.95rem; font-weight: 600;">Braided USB-C Cable</h3>
+            <span style="font-size: 0.78rem; color: var(--text-muted);">1m Fast-Charge</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION: Final Hero & Purchase Showcase
+         ====================================================================== -->
+    <section class="section-final" aria-label="Experience TRITON">
+      <div class="final-hero-card">
+        <span class="eyebrow">ORDER TODAY</span>
+        <h2 class="heading-display">Hear beyond ordinary limits.</h2>
+        <p class="body-lead" style="margin: 1rem auto 0 auto;">
+          Experience flagship wireless audio engineered for life. Complimentary laser engraving and expedited shipping included with every order.
+        </p>
+
+        <div class="price-badge">
+          $299 <span>USD / Free Worldwide Delivery</span>
+        </div>
+
+        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+          <button type="button" class="btn-primary trigger-preorder" style="padding: 16px 42px; font-size: 1rem;">
+            Experience TRITON
+          </button>
+          <a href="#specs" class="btn-secondary">
+            View Complete Specs
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       Interactive Pre-Order & Configurator Drawer (Apple Store Experience)
+       ======================================================================== -->
+  <div id="preorder-modal" class="modal-backdrop" aria-hidden="true" role="dialog" aria-labelledby="drawer-title">
+    <div class="modal-drawer">
+      <div>
+        <div class="drawer-header">
+          <div>
+            <span class="eyebrow" style="margin-bottom: 4px;">FLAGSHIP PRE-ORDER</span>
+            <h2 id="drawer-title" style="font-size: 1.45rem; font-weight: 700; color: #FFFFFF;">TRITON Experience</h2>
+          </div>
+          <button type="button" id="close-modal-btn" class="drawer-close-btn" aria-label="Close Pre-Order Drawer">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Color Selection in Drawer -->
+        <div class="config-group">
+          <label class="config-label">1. Select Your Finish</label>
+          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
+            <button type="button" class="btn-secondary hero-swatch-btn-drawer" data-color="white" style="border-color: var(--accent-cyan); color: #fff; justify-content: center; padding: 10px;">
+              Ceramic White
+            </button>
+            <button type="button" class="btn-secondary hero-swatch-btn-drawer" data-color="navy" style="justify-content: center; padding: 10px;">
+              Glossy Navy
+            </button>
+            <button type="button" class="btn-secondary hero-swatch-btn-drawer" data-color="graphite" style="justify-content: center; padding: 10px;">
+              Graphite
+            </button>
+            <button type="button" class="btn-secondary hero-swatch-btn-drawer" data-color="black" style="justify-content: center; padding: 10px;">
+              Obsidian Black
+            </button>
+          </div>
+        </div>
+
+        <!-- Complimentary Laser Engraving -->
+        <div class="config-group">
+          <label class="config-label">2. Free Personalized Laser Engraving</label>
+          <input type="text" id="engrave-input" class="engrave-input" placeholder="Type initials, name, or emoji (max 12 chars)" maxlength="12">
+          <div style="margin-top: 10px; display: flex; align-items: center; justify-content: space-between; font-size: 0.78rem; color: var(--text-muted);">
+            <span>Preview on charging case:</span>
+            <span id="engrave-preview-text" style="color: var(--accent-cyan); font-family: var(--font-mono); font-weight: 600;">“NO ENGRAVING”</span>
+          </div>
+        </div>
+
+        <!-- AppleCare / TRITON Care Plan -->
+        <div class="config-group">
+          <label class="config-label">3. TRITON Care+ Coverage</label>
+          <div style="padding: 16px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); display: flex; justify-content: space-between; align-items: center;">
+            <div>
+              <div style="font-weight: 600; font-size: 0.88rem; color: #FFFFFF;">2 Years Unlimited Incident Protection</div>
+              <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 2px;">Includes express replacement & battery warranty</div>
+            </div>
+            <span style="font-weight: 600; font-size: 0.88rem; color: var(--accent-cyan);">+$39</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Checkout Footer -->
+      <div style="border-top: 1px solid var(--border-subtle); padding-top: 24px;">
+        <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 16px;">
+          <span style="font-size: 0.95rem; color: var(--text-secondary);">Total (Expedited Shipping Included)</span>
+          <span style="font-size: 1.6rem; font-weight: 800; color: #FFFFFF;">$299 USD</span>
+        </div>
+        <button type="button" class="btn-primary" style="width: 100%; padding: 16px; font-size: 0.95rem; margin-bottom: 10px;" onclick="alert('Thank you for reserving TRITON. Priority production batch confirmed!')">
+          Complete Pre-Order with Apple Pay
+        </button>
+        <button type="button" class="btn-secondary" style="width: 100%; padding: 14px; font-size: 0.88rem; justify-content: center;" onclick="alert('Standard checkout link initiated.')">
+          Pay with Credit / Debit Card
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       Apple-Style Corporate Minimal Footer
+       ======================================================================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-container">
+      <div class="footer-disclaimer">
+        1. Battery endurance claims reflect audio playback at 50% volume using AAC codec with active attenuation enabled. Testing performed in an anechoic acoustic laboratory. Actual battery life varies with device settings, environmental variables, and usage.<br>
+        2. Frequency response measurements verified via compliant ear simulator conforming to IEC 60318-4 standards. Lossless audio requires compatible master playback device and high-resolution streaming source.<br>
+        3. IP54 water resistance tested under controlled laboratory conditions under IEC standard 60529. Resistance is not permanent and may diminish as a result of normal wear.
+      </div>
+
+      <div class="footer-links-grid">
+        <div>
+          <div class="footer-col-title">Explore TRITON</div>
+          <ul class="footer-col-links">
+            <li><a href="#overview">TRITON Earbuds</a></li>
+            <li><a href="#technology">Acoustic Architecture</a></li>
+            <li><a href="#sound">Interactive Audio Lab</a></li>
+            <li><a href="#design">Ceramic Finishes</a></li>
+            <li><a href="#specs">Technical Specs</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Account & Orders</div>
+          <ul class="footer-col-links">
+            <li><a href="#" class="trigger-preorder">Manage Reservation</a></li>
+            <li><a href="#">Order Tracking</a></li>
+            <li><a href="#">TRITON Care+</a></li>
+            <li><a href="#">Corporate Gifting</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Support & Engineering</div>
+          <ul class="footer-col-links">
+            <li><a href="#">Firmware Updates</a></li>
+            <li><a href="#">Acoustic Whitepaper</a></li>
+            <li><a href="#">Recycling Program</a></li>
+            <li><a href="#">Contact Audio Specialists</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">About TRITON</div>
+          <ul class="footer-col-links">
+            <li><a href="#">Our Philosophy</a></li>
+            <li><a href="#">Acoustic Laboratories</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press Kit</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          Copyright © 2026 TRITON Audio Technologies Inc. All rights reserved.
+        </div>
+        <div style="display: flex; gap: 20px;">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+          <a href="#">Sales Policy</a>
+          <a href="#">Legal</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="scripts/scrollytelling.js"></script>
+  <script src="scripts/audio-synthesizer.js"></script>
+  <script src="scripts/interactions.js"></script>
+</body>
+</html>
